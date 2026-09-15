@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudOps Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">CA</div>
+      <div>
+        <h1>CloudOps Analytics</h1>
+        <p>Serverless transaction monitoring</p>
+      </div>
+    </div>
+    <div class="status"><span></span> Demo environment</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AWS CLOUD DEMO</p>
+        <h2>Daily automation transaction analytics</h2>
+        <p class="muted">A frontend designed to sit behind Amazon CloudFront and S3, with an optional API Gateway + Lambda backend.</p>
+      </div>
+      <button id="refreshBtn">Refresh data</button>
+    </section>
+
+    <section class="cards">
+      <article><p>Total transactions</p><strong id="total">—</strong><small>Today</small></article>
+      <article><p>Completed</p><strong id="completed">—</strong><small id="completionRate">—</small></article>
+      <article><p>Failed</p><strong id="failed">—</strong><small id="failureRate">—</small></article>
+      <article><p>Avg. processing</p><strong id="aht">—</strong><small>minutes</small></article>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h3>Transaction volume</h3><p>Last 7 days</p></div>
+          <span class="pill">Live demo data</span>
+        </div>
+        <div class="chart" id="chart"></div>
+        <div class="chart-labels" id="labels"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h3>Status breakdown</h3><p>Today's processing</p></div></div>
+        <div class="donut-wrap">
+          <div class="donut" id="donut"><div><strong id="donutPct">—</strong><span>success</span></div></div>
+        </div>
+        <div class="legend">
+          <div><span class="dot success"></span>Completed <b id="legendCompleted">—</b></div>
+          <div><span class="dot failed"></span>Failed <b id="legendFailed">—</b></div>
+          <div><span class="dot pending"></span>Pending <b id="legendPending">—</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div><h3>Recent transactions</h3><p>Sample records representing data returned by an API</p></div>
+        <span class="api" id="apiStatus">API: DEMO MODE</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Transaction</th><th>Customer</th><th>Type</th><th>Status</th><th>Duration</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="architecture">
+      <div>
+        <p class="eyebrow">DEPLOYMENT TARGET</p>
+        <h3>Designed for an AWS serverless architecture</h3>
+        <p class="muted">Use this UI as the application layer while you demonstrate the infrastructure and deployment engineering.</p>
+      </div>
+      <div class="flow">
+        <span>Browser</span><b>→</b><span>CloudFront</span><b>→</b><span>S3</span>
+        <div class="optional">Optional: API Gateway → Lambda → DynamoDB</div>
+      </div>
+    </section>
+  </main>
+  <footer>CloudOps Analytics · AWS portfolio demo</footer>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
